@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Досье персонажа</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            color: #b0b8c6; /* Нейтральный цвет текста между белым и черным */
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(23, 32, 56, 0.9);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+            border: 1px solid #415a77;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e63946;
+        }
+        
+        .header h1 {
+            color: #e63946;
+            text-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
+            font-size: 32px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #a8dadc;
+            font-size: 16px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: rgba(27, 38, 59, 0.6);
+            border-radius: 8px;
+            border-left: 4px solid #e63946;
+        }
+        
+        .section-title {
+            color: #e63946;
+            margin-bottom: 15px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title::before {
+            content: "◈";
+            margin-right: 10px;
+            color: #ff9e00;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            gap: 10px 15px;
+        }
+        
+        .info-label {
+            color: #ff9e00;
+            font-weight: bold;
+        }
+        
+        .info-value {
+            color: #d8e2ee; /* Нейтральный светлый цвет */
+        }
+        
+        .hobby-list, .equipment-list {
+            list-style-type: none;
+        }
+        
+        .hobby-list li, .equipment-list li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .hobby-list li::before {
+            content: "├";
+            position: absolute;
+            left: 0;
+            color: #a8dadc;
+        }
+        
+        .equipment-list {
+            counter-reset: item;
+        }
+        
+        .equipment-list li {
+            counter-increment: item;
+        }
+        
+        .equipment-list li::before {
+            content: counter(item) ".";
+            position: absolute;
+            left: 0;
+            color: #ff9e00;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #415a77;
+            color: #a8dadc;
+            font-size: 14px;
+        }
+        
+        .stamp {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #e63946;
+            color: #f1faee;
+            border-radius: 3px;
+            font-size: 12px;
+            transform: rotate(-5deg);
+            margin-top: 10px;
+            border: 1px solid #ff9e00;
+        }
+        
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;gap: 5px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⫸⫸⫸ ДОСЬЕ ПЕРСОНАЖА ⫷⫷⫷</h1>
+            <p>Служебная информация // Классифицировано</p>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">ЛИЧНЫЕ ДАННЫЕ</h3>
+            <div class="info-grid">
+                <span class="info-label">ФИО:</span>
+                <span class="info-value">Кузнецов Анатолий Викторович</span>
+                
+                <span class="info-label">Возраст:</span>
+                <span class="info-value">28 лет</span>
+                
+                <span class="info-label">Рост/Вес:</span>
+                <span class="info-value">184 см/82 кг</span>
+                
+                <span class="info-label">Телосложение:</span>
+                <span class="info-value">атлетическое</span>
+                
+                <span class="info-label">Габариты:</span>
+                <span class="info-value">104-84-100 см</span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">СЛУЖЕБНАЯ ИНФОРМАЦИЯ</h3>
+            <div class="info-grid">
+                <span class="info-label">Профессия:</span>
+                <span class="info-value">Оперативник СОБР Росгвардии</span>
+                
+                <span class="info-label">Образование:</span>
+                <span class="info-value">МГТУ им. Баумана</span>
+                
+                <span class="info-label">Специальность:</span>
+                <span class="info-value">Инженер-системотехник</span>
+                
+                <span class="info-label">Квалификация:</span>
+                <span class="info-value">Специалист</span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">ХОББИ И УВЛЕЧЕНИЯ</h3>
+            <ul class="hobby-list">
+                <li>Тактическая медицина (C-TECC/TCCC)</li>
+                <li>Функциональный тренинг</li>
+                <li>Скалолазание</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">ЭКИПИРОВКА</h3>
+            <ol class="equipment-list">
+                <li>Огниво титановое</li>
+                <li>Аркан альпинистский (12мм/20м)</li>
+                <li>Спусковое устройство "восьмерка"</li>
+                <li>Карабин стальной BSNP</li>
+                <li>Жгут тактический CAT Gen7</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">ОСОБЫЕ ОТМЕТКИ</h3>
+            <div class="info-grid">
+                <span class="info-label">Психоустойчивость:</span>
+                <span class="info-value" style="color: #90ee90;">98%</span>
+                
+                <span class="info-label">Статус:</span>
+                <span class="info-value">Носитель спецметодик подготовки</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>ДЕЙСТВИТЕЛЬНО ДО: <strong>12.12.2025</strong></p>
+            <div class="stamp">ДЛЯ СЛУЖЕБНОГО ПОЛЬЗОВАНИЯ</div>
+        </div>
+    </div>
+</body>
+</html>
